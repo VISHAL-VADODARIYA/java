@@ -8,7 +8,7 @@
 		<version>3.1.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.learning</groupId>
+	<groupId>com.vishal</groupId>
 	<artifactId>spring-security-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-security-client</name>
