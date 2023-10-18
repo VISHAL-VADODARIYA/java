@@ -1,17 +1,18 @@
-package com.vishal.springsecurityclient.event;
+package com.dailycodebuffer.client.event;
 
-import com.vishal.springsecurityclient.entity.User;
+import com.dailycodebuffer.client.entity.User;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
-
 
 @Getter
 @Setter
 public class RegistrationCompleteEvent extends ApplicationEvent {
 
-    private User user;
-    private String applicationUrl;
+    private final User user;
+    private final String applicationUrl;
 
     public RegistrationCompleteEvent(User user, String applicationUrl) {
         super(user);

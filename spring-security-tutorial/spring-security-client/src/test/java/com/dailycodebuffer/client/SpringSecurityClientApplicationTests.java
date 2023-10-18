@@ -1,4 +1,4 @@
-package com.vishal.springsecurityclient;
+package com.dailycodebuffer.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

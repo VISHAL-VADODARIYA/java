@@ -1,8 +1,8 @@
-package com.vishal.springsecurityclient.entity;
+package com.dailycodebuffer.client.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -14,8 +14,10 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+
     @Column(length = 60)
     private String password;
+
     private String role;
     private boolean enabled = false;
 }
