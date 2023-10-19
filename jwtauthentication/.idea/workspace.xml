@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c5bbce0a-1198-4fcd-bb64-f7f966dde6e3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/entity/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/SpringSecurityClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/SpringSecurityClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/config/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/config/WebClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/controller/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/entity/PasswordResetToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/entity/PasswordResetToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/entity/VerificationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/entity/VerificationToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/event/RegistrationCompleteEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/event/RegistrationCompleteEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/event/listener/RegistrationCompleteEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/event/listener/RegistrationCompleteEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/model/PasswordModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/model/PasswordModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/model/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/repository/PasswordResetTokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/repository/PasswordResetTokenRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/repository/VerificationTokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/repository/VerificationTokenRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/client/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-tutorial/spring-security-client/src/main/java/com/vishal/springsecurityclient/service/UserServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2WyQQAvjwUOmBQ2Za9hMQrVPTmV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "android.gradle.sync.needed": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/vishal.vadodariya/Documents/java/jwtauthentication"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c5bbce0a-1198-4fcd-bb64-f7f966dde6e3" name="Changes" comment="" />
+      <created>1697702322416</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697702322416</updated>
+    </task>
+    <servers />
+  </component>
+</project>
