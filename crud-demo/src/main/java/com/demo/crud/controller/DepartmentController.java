@@ -1,12 +1,12 @@
-package com.learning.RestAPI.controller;
+package com.demo.crud.controller;
 
-import com.learning.RestAPI.entity.Department;
-import com.learning.RestAPI.service.DepartmentService;
+import com.demo.crud.entity.Department;
+import com.demo.crud.entity.Employee;
+import com.demo.crud.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Locale;
 
 @RestController
 public class DepartmentController {
@@ -15,12 +15,12 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @PostMapping("/departments")
-    public Department saveDepartment(@RequestBody Department department) {
+    public Department saveDepartment(@RequestBody Department department){
         return departmentService.saveDepartment(department);
     }
 
     @GetMapping("/departments")
-    public List<Department> fetchDepartmentList() {
+    public List<Department> fetchDepartmentList(){
         return departmentService.fetchDepartmentList();
     }
 
@@ -29,14 +29,16 @@ public class DepartmentController {
         return departmentService.fetchDepartmentById(departmentId);
     }
 
+    @PutMapping("/departments/{id}")
+    public Department updateDepartment(@PathVariable("id") Long departmentId,@RequestBody Department department){
+        return departmentService.updateDepartment(departmentId,department);
+    }
+
     @DeleteMapping("/departments/{id}")
-    public String deleteDepartmentById(@PathVariable("id") Long departmentId) {
+    public String deleteDepartmentById(@PathVariable("id") Long departmentId){
         departmentService.deleteDepartmentById(departmentId);
         return "Department Deleted Successfully!!";
     }
 
-    @PutMapping("/departments/{id}")
-    public Department updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department) {
-        return departmentService.updateDepartment(departmentId, department);
-    }
-}
+
+ }
