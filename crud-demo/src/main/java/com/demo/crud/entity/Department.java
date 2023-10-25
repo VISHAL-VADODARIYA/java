@@ -2,6 +2,8 @@ package com.demo.crud.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Department {
 
@@ -12,8 +14,8 @@ public class Department {
     @Column(unique = true)
     private String departmentName;
 
-//    @OneToOne(mappedBy = "department")
-//    private Employee employee;
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employees;
 
     public Long getDepartmentId() {
         return departmentId;

@@ -12,7 +12,9 @@ import java.util.Objects;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    @Autowired DepartmentService departmentService;
+
+    @Autowired
+    private DepartmentService departmentService;
     @Autowired
     private EmployeeRepository employeeRepository;
     @Override

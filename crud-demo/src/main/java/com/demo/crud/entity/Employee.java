@@ -21,6 +21,7 @@ public class Employee {
     private String employeeContact;
 
 
+    @ManyToOne
     @JoinColumn(name = "department_id") // This sets up the foreign key relationship
     private Department department;
 
