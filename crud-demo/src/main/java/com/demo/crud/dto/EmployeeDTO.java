@@ -1,6 +1,7 @@
 package com.demo.crud.dto;
 
 import com.demo.crud.entity.Department;
+import com.demo.crud.response.ApiResponse;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
@@ -22,5 +23,4 @@ public class EmployeeDTO {
 //    private Long departmentId;
 
     private Department department;
-
 }

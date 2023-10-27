@@ -7,12 +7,16 @@ import com.demo.crud.dto.EmployeeDTO;
 import com.demo.crud.entity.Department;
 import com.demo.crud.entity.Employee;
 import com.demo.crud.mapper.MapstructMapper;
+import com.demo.crud.response.ApiResponse;
+import com.demo.crud.response.StringResponse;
 import com.demo.crud.service.DepartmentService;
 import com.demo.crud.service.EmployeeService;
 import org.apache.coyote.Response;
 import org.mapstruct.factory.Mappers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -39,6 +43,9 @@ public class EmployeeController {
     public EmployeeDTO saveEmployee(@RequestBody EmployeeDTO employee) {
 // call service for long by id
         Department dep = departmentService.fetchDepartmentById(employee.getDepartment().getDepartmentId());
+        //        if (dep.getDepartmentId() != employee.getDepartment().getDepartmentId()){
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new StringResponse("could not find department with this id"));
+//        }
         employee.setDepartment(dep);
 
 //        Employee save = converter.dtoToEntity(employee); // using manully DTO object
@@ -51,141 +58,45 @@ public class EmployeeController {
 
 //        return modelMapper.map(saveEmployee,EmployeeDTO.class);  // using manully DTO object
 //        return modelMapper.map(saveEmployee,EmployeeDTO.class); // using ModelMapper
-        return mapper.entityToDto(saveEmployee); // using MapStruct mapper
+        return mapper.entityToDto(saveEmployee);
+    }
+
+    @PostMapping("/departments/employees")
+    public List<EmployeeDTO> fetchEmployeeListByDepName(@RequestBody DepartmentDTO department) {
+        List<Employee> listWithDepName = new ArrayList<>();
+
+        List<Employee> fetchEmployeeList = employeeService.fetchEmployeeList();
+        System.out.println(department.getDepartmentName());
+        fetchEmployeeList.forEach(o -> {
+            if (o.getDepartment().getDepartmentName().equals(department.getDepartmentName())) {
+                listWithDepName.add(o);
+            }
+        });
+
+
+        return mapper.entityToDtoList(listWithDepName);
     }
 
     @GetMapping("/employees")
     public List<EmployeeDTO> fetchEmployeeList() {
         List<Employee> fetchEmployeeList = employeeService.fetchEmployeeList();
-        List<EmployeeDTO> listWithGroup = new List<EmployeeDTO>() {
-            @Override
-            public int size() {
-                return 0;
-            }
+        List<EmployeeDTO> listWithGroup = new ArrayList<>();
 
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                return false;
-            }
-
-            @Override
-            public Iterator<EmployeeDTO> iterator() {
-                return null;
-            }
-
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @Override
-            public <T> T[] toArray(T[] a) {
-                return null;
-            }
-
-            @Override
-            public boolean add(EmployeeDTO dto) {
-                return false;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends EmployeeDTO> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(int index, Collection<? extends EmployeeDTO> c) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
-
-            @Override
-            public EmployeeDTO get(int index) {
-                return null;
-            }
-
-            @Override
-            public EmployeeDTO set(int index, EmployeeDTO element) {
-                return null;
-            }
-
-            @Override
-            public void add(int index, EmployeeDTO element) {
-
-            }
-
-            @Override
-            public EmployeeDTO remove(int index) {
-                return null;
-            }
-
-            @Override
-            public int indexOf(Object o) {
-                return 0;
-            }
-
-            @Override
-            public int lastIndexOf(Object o) {
-                return 0;
-            }
-
-            @Override
-            public ListIterator<EmployeeDTO> listIterator() {
-                return null;
-            }
-
-            @Override
-            public ListIterator<EmployeeDTO> listIterator(int index) {
-                return null;
-            }
-
-            @Override
-            public List<EmployeeDTO> subList(int fromIndex, int toIndex) {
-                return null;
-            }
-        };
-
-        List list = mapper.entityToDtoList(fetchEmployeeList);
-        for (int i = 0; i < list.size(); i++) {
-            Object demo = list.get(i);
-            if ()
-//            String item = list.get(i);
-                System.out.println("Item at index " + i + ": " + demo);
-        }
-       
+        List<EmployeeDTO> list = mapper.entityToDtoList(fetchEmployeeList);
+        List<Department> depList = departmentService.fetchDepartmentList();
+        depList.forEach(d -> {
+            list.forEach(o -> {
+                if (d.getDepartmentName() == o.getDepartment().getDepartmentName()) {
+                    listWithGroup.add(o);
+                }
+                System.out.println("Item at index " + o + ": " + o.getDepartment().getDepartmentName());
+            });
+        });
 
 //        return converter.entityToDto(fetchEmployeeList);  // using manully DTO object
 //        return Arrays.asList(modelMapper.map(fetchEmployeeList,EmployeeDTO[].class));  // using ModelMapper
-        return mapper.entityToDtoList(fetchEmployeeList); // using MapStruct mapper
+//        return mapper.entityToDtoList(fetchEmployeeList); // using MapStruct mapper
+        return listWithGroup; // using MapStruct mapper
     }
 
     @GetMapping("/employees/{id}")

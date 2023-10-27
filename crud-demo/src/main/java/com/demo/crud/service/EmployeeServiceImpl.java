@@ -17,6 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private DepartmentService departmentService;
     @Autowired
     private EmployeeRepository employeeRepository;
+
     @Override
     public Employee saveEmployee(Employee employee) {
         employee.setDepartment(employee.getDepartment());
@@ -39,13 +40,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee updateEmployee(Long employeeId, Employee employee) {
         Employee emp = employeeRepository.findById(employeeId).get();
-        if(Objects.nonNull(employee.getEmployeeName()) && !"".equalsIgnoreCase(employee.getEmployeeName())){
+        if (Objects.nonNull(employee.getEmployeeName()) && !"".equalsIgnoreCase(employee.getEmployeeName())) {
             emp.setEmployeeName(employee.getEmployeeName());
         }
-        if(Objects.nonNull(employee.getEmployeeEmail()) && !"".equalsIgnoreCase(employee.getEmployeeEmail())){
+        if (Objects.nonNull(employee.getEmployeeEmail()) && !"".equalsIgnoreCase(employee.getEmployeeEmail())) {
             emp.setEmployeeEmail(employee.getEmployeeEmail());
         }
-        if(Objects.nonNull(employee.getEmployeeContact()) && !"".equalsIgnoreCase(employee.getEmployeeContact())){
+        if (Objects.nonNull(employee.getEmployeeContact()) && !"".equalsIgnoreCase(employee.getEmployeeContact())) {
             emp.setEmployeeContact(employee.getEmployeeContact());
         }
         return employeeRepository.save(emp);
