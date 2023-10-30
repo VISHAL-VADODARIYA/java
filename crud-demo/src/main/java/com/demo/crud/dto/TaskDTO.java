@@ -14,8 +14,6 @@ public class TaskDTO {
 
     private String taskName;
 
-    private boolean assigned;
-
     private Employee employee;
 
 }

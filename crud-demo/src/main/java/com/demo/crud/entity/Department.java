@@ -1,5 +1,6 @@
 package com.demo.crud.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class Department {
     private String departmentName;
 
     @OneToMany(mappedBy = "department")
+//    @JsonIgnore
     private List<Employee> employees;
 
     public Long getDepartmentId() {
@@ -50,11 +52,11 @@ public class Department {
     public Department() {
     }
 
-    @Override
-    public String toString() {
-        return "Department{" +
-                "departmentId=" + departmentId +
-                ", departmentName='" + departmentName +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Department{" +
+//                "departmentId=" + departmentId +
+//                ", departmentName='" + departmentName +
+//                '}';
+//    }
 }

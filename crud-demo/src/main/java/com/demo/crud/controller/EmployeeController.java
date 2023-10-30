@@ -2,15 +2,22 @@ package com.demo.crud.controller;
 
 
 import com.demo.crud.converter.EmployeeConverter;
+import com.demo.crud.dto.AssetDTO;
 import com.demo.crud.dto.DepartmentDTO;
 import com.demo.crud.dto.EmployeeDTO;
+import com.demo.crud.dto.TaskDTO;
+import com.demo.crud.entity.Asset;
 import com.demo.crud.entity.Department;
 import com.demo.crud.entity.Employee;
+import com.demo.crud.entity.Task;
 import com.demo.crud.mapper.MapstructMapper;
+import com.demo.crud.mapper.MapstructMapperAsset;
 import com.demo.crud.response.ApiResponse;
 import com.demo.crud.response.StringResponse;
+import com.demo.crud.service.AssetService;
 import com.demo.crud.service.DepartmentService;
 import com.demo.crud.service.EmployeeService;
+import com.demo.crud.service.TaskService;
 import org.apache.coyote.Response;
 import org.mapstruct.factory.Mappers;
 import org.modelmapper.ModelMapper;
@@ -34,32 +41,52 @@ public class EmployeeController {
     private DepartmentService departmentService;
 
     @Autowired
+    private AssetService assetService;
+
+    @Autowired
+    private TaskService taskService;
+
+    @Autowired
     private EmployeeConverter converter;
 
     MapstructMapper mapper = Mappers.getMapper(MapstructMapper.class);
+    MapstructMapperAsset mapAst = Mappers.getMapper(MapstructMapperAsset.class);
 
 
     @PostMapping("/employees")
     public EmployeeDTO saveEmployee(@RequestBody EmployeeDTO employee) {
 // call service for long by id
+
+        //department
         Department dep = departmentService.fetchDepartmentById(employee.getDepartment().getDepartmentId());
+        employee.setDepartment(dep);
         //        if (dep.getDepartmentId() != employee.getDepartment().getDepartmentId()){
 //            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new StringResponse("could not find department with this id"));
 //        }
-        employee.setDepartment(dep);
 
-//        Employee save = converter.dtoToEntity(employee); // using manully DTO object
-//        Employee save = modelMapper.map(employee,Employee.class); // using ModelMapper
+        //assets
+        List<Asset> asst = new ArrayList<>();
+        List<Asset> assets = employee.getAssets();
+        assets.forEach(o -> asst.add(assetService.fetchAssetById(o.getAssetId())));
+        employee.setAssets(asst);
+//        employee.setNoOfAssets(employee.getAssets().size());
+
+        //task
+        List<Task> tk = new ArrayList<>();
+        List<Task> tasks = employee.getTasks();
+        String name = employee.getEmployeeName();
+        tasks.forEach(t -> tk.add(taskService.fetchTaskById(t.getTaskId())));
+        employee.setTasks(tk);
+
+
         Employee save = mapper.dtoToEntity(employee); // using MapStruct Mapper
-
-        System.out.println(employee);
-
         Employee saveEmployee = employeeService.saveEmployee(save);
+        EmployeeDTO x = mapper.entityToDto(saveEmployee);
+        x.setNoOfAssets(x.getAssets().size());
 
-//        return modelMapper.map(saveEmployee,EmployeeDTO.class);  // using manully DTO object
-//        return modelMapper.map(saveEmployee,EmployeeDTO.class); // using ModelMapper
-        return mapper.entityToDto(saveEmployee);
+        return x;
     }
+
 
     @PostMapping("/departments/employees")
     public List<EmployeeDTO> fetchEmployeeListByDepName(@RequestBody DepartmentDTO department) {

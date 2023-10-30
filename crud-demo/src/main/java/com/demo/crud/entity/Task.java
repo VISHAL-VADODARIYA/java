@@ -1,5 +1,6 @@
 package com.demo.crud.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +18,9 @@ public class Task {
 
     private String taskName;
 
-    private boolean assigned;
-
     @ManyToOne
     @JoinColumn(name = "employee_id") // This sets up the foreign key relationship
+//    @JsonIgnore
     private Employee employee;
 //    private Long employeeId;
 

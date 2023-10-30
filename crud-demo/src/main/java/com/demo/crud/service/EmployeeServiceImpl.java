@@ -20,8 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee saveEmployee(Employee employee) {
-        employee.setDepartment(employee.getDepartment());
-        System.out.println(employee);
+//        employee.setDepartment(employee.getDepartment());
         return employeeRepository.save(employee);
     }
 

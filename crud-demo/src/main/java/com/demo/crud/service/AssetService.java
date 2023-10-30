@@ -9,4 +9,6 @@ public interface AssetService {
     public Asset updateAsset(Long assetId ,Asset asset);
 
     public void deleteAssetById(Long assetId);
+
+    public Asset fetchAssetById(Long assetId);
 }

@@ -1,7 +1,9 @@
 package com.demo.crud.controller;
 
 import com.demo.crud.dto.AssetDTO;
+import com.demo.crud.dto.DepartmentDTO;
 import com.demo.crud.entity.Asset;
+import com.demo.crud.entity.Department;
 import com.demo.crud.mapper.MapstructMapperAsset;
 import com.demo.crud.service.AssetService;
 import org.mapstruct.factory.Mappers;
@@ -21,6 +23,14 @@ public class AssetController {
         Asset save = mapper.dtoToEntity(asset);
         Asset saveAsset = assetService.saveAsset(save);
         return mapper.entityToDto(saveAsset);
+    }
+
+    @GetMapping("/asset/{id}")
+    public AssetDTO fetchAssetById(@PathVariable("id") Long assetId) {
+
+        Asset fetchAssetById = assetService.fetchAssetById(assetId);
+        return mapper.entityToDto(fetchAssetById);
+
     }
 
     @PutMapping("/asset/{id}")

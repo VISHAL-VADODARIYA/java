@@ -1,5 +1,6 @@
 package com.demo.crud.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class Asset {
 
     private String assetName;
 
-//    @ManyToMany(mappedBy = "assets")
-//    private Set<Employee> employees = new HashSet<>();
+    @ManyToMany(mappedBy = "assets")
+    @JsonIgnore
+    private Set<Employee> employees = new HashSet<>();
 }

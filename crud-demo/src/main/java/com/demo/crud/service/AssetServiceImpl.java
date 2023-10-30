@@ -31,4 +31,9 @@ public class AssetServiceImpl implements AssetService{
     public void deleteAssetById(Long assetId) {
         assetRepository.deleteById(assetId);
     }
+
+    @Override
+    public Asset fetchAssetById(Long assetId) {
+        return assetRepository.findById(assetId).get();
+    }
 }
